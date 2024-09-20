@@ -5,43 +5,50 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-
-  public cartItemList : any =[]
-  public productList = new BehaviorSubject<any>([]);
-  public search = new BehaviorSubject<string>("");
+  private cartItems: any[] = [];
+  private cartItemsSubject = new BehaviorSubject<any[]>([]);
+  private searchSubject = new BehaviorSubject<string>('');
 
   constructor() { }
-  getProducts(){
-    return this.productList.asObservable();
+
+  getProducts() {
+    return this.cartItemsSubject.asObservable();
   }
 
-  setProduct(product : any){
-    this.cartItemList.push(...product);
-    this.productList.next(product);
+  addtoCart(product: any) {
+    const itemIndex = this.cartItems.findIndex(item => item.id === product.id);
+
+    if (itemIndex > -1) {
+      this.cartItems[itemIndex].quantity++;
+      this.cartItems[itemIndex].total = this.cartItems[itemIndex].price * this.cartItems[itemIndex].quantity;
+    } else {
+      const newItem = { ...product, quantity: 1, total: product.price };
+      this.cartItems.push(newItem);
+    }
+
+    this.cartItemsSubject.next(this.cartItems);
   }
-  addtoCart(product : any){
-    this.cartItemList.push(product);
-    this.productList.next(this.cartItemList);
-    this.getTotalPrice();
-    console.log(this.cartItemList)
+
+  removeCartItem(product: any) {
+    this.cartItems = this.cartItems.filter(item => item.id !== product.id);
+    this.cartItemsSubject.next(this.cartItems);
   }
-  getTotalPrice() : number{
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
-    })
-    return grandTotal;
+
+  removeAllCart() {
+    this.cartItems = [];
+    this.cartItemsSubject.next(this.cartItems);
   }
-  removeCartItem(product: any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
-      }
-    })
-    this.productList.next(this.cartItemList);
+
+  getTotalPrice() {
+    return this.cartItems.reduce((sum, item) => sum + item.total, 0);
   }
-  removeAllCart(){
-    this.cartItemList = []
-    this.productList.next(this.cartItemList);
+
+  // Search functionality
+  get search() {
+    return this.searchSubject.asObservable();
+  }
+
+  setSearch(query: string) {
+    this.searchSubject.next(query);
   }
 }
