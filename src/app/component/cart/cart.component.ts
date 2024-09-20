@@ -10,6 +10,7 @@ export class CartComponent implements OnInit {
 
   public products : any = [];
   public grandTotal !: number;
+  userMessage: string = '';
   
   constructor(private cartService : CartService) { }
 
@@ -26,5 +27,23 @@ export class CartComponent implements OnInit {
   emptycart(){
     this.cartService.removeAllCart();
   }
+  increaseQuantity(item: any) {
+    item.quantity++;
+    item.total = item.price * item.quantity; // Update the total price
+    this.updateGrandTotal(); // Call a method to update the grand total
+}
+
+decreaseQuantity(item: any) {
+    if (item.quantity > 1) {
+        item.quantity--;
+        item.total = item.price * item.quantity; // Update the total price
+        this.updateGrandTotal(); // Call a method to update the grand total
+    }
+}
+
+updateGrandTotal() {
+    this.grandTotal = this.products.reduce((sum: any, item: { total: any; }) => sum + item.total, 0);
+}
+
 
 }
