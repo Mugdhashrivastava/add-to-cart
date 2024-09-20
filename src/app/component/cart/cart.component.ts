@@ -10,6 +10,7 @@ export class CartComponent implements OnInit {
 
   public products : any = [];
   public grandTotal !: number;
+  
   constructor(private cartService : CartService) { }
 
   ngOnInit(): void {
