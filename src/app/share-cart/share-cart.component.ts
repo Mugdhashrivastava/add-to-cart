@@ -25,4 +25,13 @@ export class ShareCartComponent {
       );
     }
   }
+  title = 'QR Code Generator for Links';
+
+  // Default QR code value (You can set a default link)
+  qrCodeLink: string = 'https://localhost:4200.com';
+
+  // Function to generate a new QR code based on the provided link
+  updateQRCode(newLink: string) {
+    this.qrCodeLink = newLink;
+  }
 }

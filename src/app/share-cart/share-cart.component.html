@@ -2,16 +2,9 @@
     <h2>Share Your Cart</h2>
     <form (ngSubmit)="shareCart()">
       <div class="mb-3">
-        <label for="tokenKey" class="form-label">Enter Token Key</label>
-        <input 
-          type="text" 
-          id="tokenKey" 
-          class="form-control" 
-          [(ngModel)]="tokenKey" 
-          name="tokenKey" 
-          required
-        >
-      </div>
+        <label for="tokenKey" class="form-label">Scan QR</label>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="DTDL Logo" style="height: 400px; margin-right: 10px;">
+       </div>
       <button type="submit" class="btn " style="background-color:  #a90c5c;color:aliceblue">Share Cart</button>
     </form>
     <div *ngIf="message" class="alert alert-info mt-3">{{ message }}</div>

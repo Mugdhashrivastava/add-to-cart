@@ -49,7 +49,7 @@ export class ApiService {
         }
       },
       {
-        "id": 4,
+        "id": "66eea3b29b4180354331c735234",
         "title": "AirPods Pro (2nd Generation)",
         "price": 249000.00,
         "description": "Active Noise Cancellation, Transparency mode, Spatial audio, MagSafe charging.",
@@ -61,7 +61,7 @@ export class ApiService {
         }
       },
       {
-        "id": 5,
+        "id": "66eea3b29b4180354331c735jce",
         "title": "iPhone 15 Pro Max",
         "price": 109900.00,
         "description": "6.7-inch Super Retina XDR display, A16 Bionic chip, 48MP camera system.",
@@ -73,7 +73,7 @@ export class ApiService {
         }
       },
       {
-        "id": 6,
+        "id": "66eea3b29b4180354331c73509e9kx",
         "title": "MacBook Pro M2 16-inch",
         "price": 239900.00,
         "description": "16.2-inch Retina display, M1 Pro chip, 16-core GPU, 16GB unified memory.",
@@ -85,7 +85,7 @@ export class ApiService {
         }
       },
       {
-        "id": 7,
+        "id": "66eea3b29b4180354331c735oed",
         "title": "Apple Watch Series 10",
         "price": 399000.00,
         "description": "45mm case, Always-On Retina display, Blood Oxygen app, ECG app.",
@@ -97,7 +97,7 @@ export class ApiService {
         }
       },
       {
-        "id": 8,
+        "id": "66eea3b29b4180354331c7350982397iws",
         "title": "AirPods Pro (3nd Generation)",
         "price": 249000.00,
         "description": "Active Noise Cancellation, Transparency mode, Spatial audio, MagSafe charging.",
