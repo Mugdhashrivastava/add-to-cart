@@ -4,6 +4,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { ProductsComponent } from './component/products/products.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ShareCartComponent } from './share-cart/share-cart.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'products',pathMatch:'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
+  { path: 'share-cart', component:ShareCartComponent }, 
 ];
 
 @NgModule({
